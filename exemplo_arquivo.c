@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include<stdlib.h>
+#include<ctype.h>
+
 int main(int qtd_param, char* param[]){
 
     if (qtd_param == 2){
@@ -11,6 +13,16 @@ int main(int qtd_param, char* param[]){
             printf("Erro ao abrir o arquivo: %s", nome_arquivo);
             exit(1);
         }
+
+        FILE* saida = fopen("saida.txt", "wt");
+        if(!saida){
+            printf("Erro ao abrir o arquivo: %s", saida);
+            exit(1);
+        }
+
+
+
+
         int c=0;
         int numlinhas=0;
         while ((c=fgetc(fp))!= EOF)//lê caracter por caracter
@@ -19,6 +31,8 @@ int main(int qtd_param, char* param[]){
             {
                 numlinhas++;//conta.
             }
+            fputc(toupper(c),saida);
+
             
         }
         printf("Ha %d linhas nesse arquivo!",numlinhas+1);//+1 pois há mais uma linha apos o ultimo \n.
