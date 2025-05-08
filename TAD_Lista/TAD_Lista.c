@@ -211,3 +211,39 @@ void lst_imprime(Lista *l, void (*imprime)(void*)){
         imprime(aux->info);
     }
 }
+
+/*
+LST_GRAVA
+Parâmetros:
+Lista *l - recebe um ponteiro para a cabeça da lista
+char* arquivo - nome do arquivo de onde os dados serão carregados
+void (*salva)(void*, FILE* ) - nao retorna nada; void* ponteiro para qualquer tipo de dado e FILE* de onde sairão os dados
+*/
+void lst_grava(Lista* l, char* arquivo, void (*salva)(void*, FILE* )){
+    FILE* grava = fopen(arquivo,"wt");
+    if (!grava)
+    {
+        printf("Erro ao abrir o arquivo");
+        exit(1);
+    }
+    
+
+}
+/*
+LST_GRAVA
+Parâmetros:
+char* arquivo - nome do arquivo de onde os dados serão carregados
+void (*carrega)(FILE*) - função que carrega os dados do arquivo e retorna um ponteiro para o dado carregado.
+*/
+Lista* lst_carrega(char* arquivo, void* (*carrega)(FILE*)){
+    FILE* carrega = fopen(arquivo,"rt");
+    if (!carrega)
+    {
+        printf("Erro ao abrir o arquivo");
+        exit(1);
+    }
+
+    Lista* listinha= lst_cria();
+
+
+}

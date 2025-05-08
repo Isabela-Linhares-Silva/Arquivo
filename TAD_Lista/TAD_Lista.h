@@ -21,7 +21,8 @@
     void lst_imprime(Lista *l, void (*imprime)(void*));
     int lst_map(Lista* l, void (*operacao)(void*), int (*filtro)(void*));
     int verifica(Lista *l, int n);
-    
+    void lst_grava(Lista* l, char* arquivo, void (*salva)(void*, FILE* ));
+    Lista* lst_carrega(char* arquivo, void* (*carrega)(FILE*));
 
     void ok();
 
